@@ -4,8 +4,10 @@ import { Container } from "@/components/layout/Container";
 import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import { useT } from "@/i18n/LanguageProvider";
 
 export function Hero() {
+  const { t } = useT();
   return (
     <section className="relative -mt-16 flex min-h-[92vh] items-center overflow-hidden bg-gradient-hero pt-16 text-primary-foreground md:-mt-20 md:pt-20">
       <img
@@ -50,26 +52,24 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent backdrop-blur"
           >
-            <Sparkles className="h-3.5 w-3.5" /> Trusted Indian Agri-Tech Brand
+            <Sparkles className="h-3.5 w-3.5" /> {t.hero.badge}
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-6 font-display text-4xl font-bold leading-[1.05] text-balance md:text-6xl lg:text-7xl"
+            className="mt-8 font-display text-4xl font-bold text-balance md:text-6xl lg:text-7xl"
             style={{ fontSize: "clamp(2.25rem, 5vw + 1rem, 4.5rem)" }}
           >
-            Modern Crop Solutions <span className="text-accent">for Indian Farmers.</span>
+            {t.hero.titleA} <span className="text-accent">{t.hero.titleB}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-5 max-w-xl text-base text-primary-foreground/80 md:text-lg"
+            className="mt-6 max-w-xl text-base leading-relaxed text-primary-foreground/85 md:text-lg md:leading-[1.8]"
           >
-            Premium crop protection, plant nutrition and growth solutions —
-            engineered for real fields, trusted by farmers, dealers and
-            distributors across India.
+            {t.hero.subtitle}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -79,9 +79,9 @@ export function Hero() {
           >
             <Link
               to="/products"
-              className="group inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 text-sm font-semibold text-accent-foreground transition-all hover:-translate-y-0.5 hover:shadow-elevated md:h-14 md:px-7 md:text-base"
+              className="group inline-flex h-12 items-center gap-2 rounded-full bg-accent px-7 text-sm font-semibold tracking-wide text-accent-foreground transition-all hover:-translate-y-0.5 hover:shadow-elevated md:h-14 md:px-8 md:text-base"
             >
-              Explore Products
+              {t.hero.cta}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <WhatsAppCTA
@@ -97,13 +97,13 @@ export function Hero() {
             className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-primary-foreground/15 pt-8"
           >
             {[
-              { v: "8+", l: "Categories" },
-              { v: "Pan-India", l: "Network" },
-              { v: "100%", l: "Quality Tested" },
+              { v: t.hero.statCategoriesV, l: t.hero.statCategoriesL },
+              { v: t.hero.statNetworkV, l: t.hero.statNetworkL },
+              { v: t.hero.statQualityV, l: t.hero.statQualityL },
             ].map((s) => (
               <div key={s.l}>
                 <p className="font-display text-2xl font-bold text-accent md:text-3xl">{s.v}</p>
-                <p className="mt-1 text-xs text-primary-foreground/70 uppercase tracking-widest">{s.l}</p>
+                <p className="mt-2 text-[11px] text-primary-foreground/75 uppercase tracking-[0.18em]">{s.l}</p>
               </div>
             ))}
           </motion.div>
@@ -130,14 +130,14 @@ export function Hero() {
                 <path d="M70 170c14-40 35-70 75-100" stroke="currentColor" strokeWidth="1.5" />
               </svg>
               <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-background/95 p-5 text-foreground shadow-elevated">
-                <p className="text-xs font-semibold uppercase tracking-widest text-leaf">
-                  Featured
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-leaf">
+                  {t.hero.featured}
                 </p>
-                <p className="mt-1 font-display text-lg font-bold">
-                  Plant Nutrition · Crop Protection
+                <p className="mt-2 font-display text-lg font-bold">
+                  {t.hero.featuredTitle}
                 </p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  Engineered for the Indian climate.
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  {t.hero.featuredSub}
                 </p>
               </div>
             </div>
