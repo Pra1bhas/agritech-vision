@@ -61,7 +61,7 @@ export function SiteHeader() {
               }}
               activeOptions={{ exact: l.to === "/" }}
             >
-              {l.label}
+              {t.nav[navKey[l.to]]}
             </Link>
           ))}
         </nav>
@@ -98,7 +98,7 @@ export function SiteHeader() {
               activeProps={{ className: "bg-leaf/10 text-leaf" }}
               activeOptions={{ exact: l.to === "/" }}
             >
-              {l.label}
+              {t.nav[navKey[l.to]]}
             </Link>
           ))}
           <div className="mt-4 flex items-center justify-between gap-3">
