@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/common/SectionHeading";
 import { Reveal } from "@/components/common/Reveal";
 import { categories } from "@/content/categories";
 import { cn } from "@/lib/utils";
+import { useT } from "@/i18n/LanguageProvider";
 import imgSucking from "@/assets/cat-sucking-pest.jpg";
 import imgChewing from "@/assets/cat-chewing-pest.jpg";
 import imgSC from "@/assets/cat-sucking-chewing.jpg";
