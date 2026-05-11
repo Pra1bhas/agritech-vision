@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { site } from "@/content/site";
 
 const orgJsonLd = {
@@ -108,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap",
       },
     ],
     scripts: [
@@ -143,15 +144,17 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteHeader />
-      <main className="min-h-screen pt-16 md:pt-20">
-        <Outlet />
-      </main>
-      <SiteFooter />
-      <WhatsAppCTA
-        variant="floating"
-        message="Hello Indian Agritech, I have an inquiry."
-      />
+      <LanguageProvider>
+        <SiteHeader />
+        <main className="min-h-screen pt-16 md:pt-20">
+          <Outlet />
+        </main>
+        <SiteFooter />
+        <WhatsAppCTA
+          variant="floating"
+          message="Hello Indian Agritech, I have an inquiry."
+        />
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }
