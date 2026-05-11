@@ -8,11 +8,20 @@ import { LanguageToggle } from "./LanguageToggle";
 import { Container } from "./Container";
 import { navLinks } from "@/content/nav";
 import { cn } from "@/lib/utils";
+import { useT } from "@/i18n/LanguageProvider";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { location } = useRouterState();
+  const { t } = useT();
+  const navKey: Record<string, keyof typeof t.nav> = {
+    "/": "home",
+    "/about": "about",
+    "/services": "services",
+    "/products": "products",
+    "/contact": "contact",
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
