@@ -259,4 +259,5 @@ const translationsRaw = {
   },
 } as const;
 
-export type Dict = typeof translations.en;
+export const translations: Record<Lang, Dict> = translationsRaw;
+
