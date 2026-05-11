@@ -6,12 +6,31 @@ import { SectionHeading } from "@/components/common/SectionHeading";
 import { Reveal } from "@/components/common/Reveal";
 import { categories } from "@/content/categories";
 import { cn } from "@/lib/utils";
+import imgSucking from "@/assets/cat-sucking-pest.jpg";
+import imgChewing from "@/assets/cat-chewing-pest.jpg";
+import imgSC from "@/assets/cat-sucking-chewing.jpg";
+import imgWater from "@/assets/cat-water-solubles.jpg";
+import imgMicro from "@/assets/cat-micro-nutrients.jpg";
+import imgGran from "@/assets/cat-granules.jpg";
+import imgPgr from "@/assets/cat-pgr.jpg";
+import imgFung from "@/assets/cat-fungicides.jpg";
+
+const imageMap: Record<string, string> = {
+  "sucking-pest": imgSucking,
+  "chewing-pest": imgChewing,
+  "sucking-and-chewing-pest": imgSC,
+  "water-solubles": imgWater,
+  "micro-nutrients": imgMicro,
+  granules: imgGran,
+  "plant-growth-regulators": imgPgr,
+  fungicides: imgFung,
+};
 
 const accentMap: Record<string, string> = {
-  leaf: "from-leaf/90 to-primary",
-  forest: "from-primary to-primary/80",
-  soil: "from-soil to-soil/80",
-  gold: "from-accent to-leaf",
+  leaf: "from-leaf/40 via-primary/60 to-primary",
+  forest: "from-primary/30 via-primary/70 to-primary",
+  soil: "from-soil/30 via-soil/70 to-soil",
+  gold: "from-accent/30 via-leaf/60 to-primary",
 };
 
 export function FeaturedCategories() {
@@ -32,13 +51,21 @@ export function FeaturedCategories() {
                 params={{ category: c.slug }}
                 className="group relative block overflow-hidden rounded-3xl shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated"
               >
-                <div
-                  className={cn(
-                    "aspect-[4/5] bg-gradient-to-br p-5 text-primary-foreground",
-                    accentMap[c.accent],
-                  )}
-                >
-                  <div className="flex h-full flex-col justify-between">
+                <div className="relative aspect-[4/5] overflow-hidden text-primary-foreground">
+                  <img
+                    src={imageMap[c.slug]}
+                    alt={c.name}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div
+                    className={cn(
+                      "absolute inset-0 bg-gradient-to-t",
+                      accentMap[c.accent],
+                    )}
+                    aria-hidden
+                  />
+                  <div className="relative flex h-full flex-col justify-between p-5">
                     <div>
                       <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary-foreground/70">
                         Category {String(i + 1).padStart(2, "0")}

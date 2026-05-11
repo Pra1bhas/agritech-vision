@@ -3,17 +3,28 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { motion } from "framer-motion";
+import heroBg from "@/assets/hero-bg.jpg";
 
 export function Hero() {
   return (
     <section className="relative -mt-16 flex min-h-[92vh] items-center overflow-hidden bg-gradient-hero pt-16 text-primary-foreground md:-mt-20 md:pt-20">
-      <div
+      <img
+        src={heroBg}
+        alt=""
         aria-hidden
-        className="absolute inset-0 leaf-pattern opacity-80"
+        className="absolute inset-0 h-full w-full object-cover opacity-40"
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_oklch(0.82_0.16_85_/_0.18),_transparent_55%)]"
+        className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/70 to-primary/90"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 leaf-pattern opacity-30"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_oklch(0.82_0.16_85_/_0.25),_transparent_55%)]"
       />
       {/* decorative circles */}
       <motion.div
