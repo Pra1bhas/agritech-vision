@@ -1,11 +1,7 @@
 "use client";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useT } from "@/i18n/LanguageProvider";
 
-/**
- * Placeholder language toggle. Telugu content layer is wired in V1.1.
- * Selection persists to localStorage but does not yet swap copy.
- */
 export function LanguageToggle({
   className,
   tone = "dark",
@@ -13,7 +9,7 @@ export function LanguageToggle({
   className?: string;
   tone?: "dark" | "light";
 }) {
-  const [lang, setLang] = useState<"en" | "te">("en");
+  const { lang, setLang } = useT();
   const base =
     "inline-flex items-center rounded-full border text-xs font-semibold tracking-wide";
   const wrap =
@@ -31,7 +27,7 @@ export function LanguageToggle({
             "h-8 rounded-full px-3 transition-colors",
             lang === l
               ? "bg-leaf text-primary-foreground"
-              : "text-current/70 hover:text-current",
+              : "opacity-70 hover:opacity-100",
           )}
           aria-pressed={lang === l}
         >

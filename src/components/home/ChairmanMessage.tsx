@@ -5,11 +5,13 @@ import { ImageFrame } from "@/components/common/ImageFrame";
 import { Quote } from "lucide-react";
 import { site } from "@/content/site";
 import chairmanImg from "@/assets/chairman.jpg";
+import { useT } from "@/i18n/LanguageProvider";
 
 export function ChairmanMessage() {
+  const { t } = useT();
   return (
     <Section id="chairman" labelledBy="chairman-h">
-      <Container className="grid items-center gap-10 md:grid-cols-12">
+      <Container className="grid items-center gap-12 md:grid-cols-12">
         <Reveal className="md:col-span-5">
           <div className="relative">
             <ImageFrame
@@ -19,39 +21,31 @@ export function ChairmanMessage() {
               className="md:max-w-sm"
             />
             <div className="absolute -bottom-5 -right-3 hidden rounded-2xl border border-border bg-card px-5 py-3 shadow-elevated md:block">
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                Chairman
+              <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                {t.chairman.role.replace(",", "")}
               </p>
-              <p className="font-display text-base font-bold">{site.chairman}</p>
+              <p className="mt-1 font-display text-base font-bold">{site.chairman}</p>
             </div>
           </div>
         </Reveal>
 
         <Reveal delay={0.1} className="md:col-span-7">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-leaf">
-            Chairman's Message
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-leaf">
+            {t.chairman.eyebrow}
           </p>
           <h2 id="chairman-h" className="text-3xl font-bold md:text-5xl text-balance">
-            "Our purpose is the prosperity of every Indian farmer."
+            {t.chairman.title}
           </h2>
-          <div className="mt-6 space-y-4 text-base text-muted-foreground md:text-lg">
+          <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg md:leading-[1.85]">
             <p className="flex gap-3">
               <Quote className="mt-1 h-5 w-5 shrink-0 text-leaf" />
-              <span>
-                At Indian Agritech we don't just deliver products — we deliver
-                trust. Every formulation we create is designed to make farming
-                simpler, safer and more rewarding.
-              </span>
+              <span>{t.chairman.body1}</span>
             </p>
-            <p>
-              We will continue to invest in modern science, honest partnerships
-              and on-ground support — so that our farmers and dealers always
-              have a brand they can rely on.
-            </p>
+            <p>{t.chairman.body2}</p>
           </div>
-          <div className="mt-8 border-t border-border pt-5">
+          <div className="mt-10 border-t border-border pt-6">
             <p className="font-display text-lg font-bold">{site.chairman}</p>
-            <p className="text-sm text-muted-foreground">Chairman, {site.name}</p>
+            <p className="mt-1 text-sm text-muted-foreground">{t.chairman.role} {site.name}</p>
           </div>
         </Reveal>
       </Container>

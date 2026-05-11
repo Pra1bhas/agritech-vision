@@ -18,8 +18,8 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
-  --font-display: "Coolvetica", "Cabinet Grotesk", "Inter", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Coolvetica", "Noto Sans Telugu", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", "Noto Sans Telugu", system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -197,11 +197,33 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+    letter-spacing: 0.005em;
+  }
+
+  p {
+    line-height: 1.75;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.022em;
+    line-height: 1.15;
+  }
+
+  h1 { line-height: 1.08; }
+
+  :lang(te) h1,
+  :lang(te) h2,
+  :lang(te) h3,
+  :lang(te) h4 {
+    letter-spacing: 0;
+    line-height: 1.35;
+  }
+
+  :lang(te) {
+    line-height: 1.85;
+    letter-spacing: 0;
   }
 }
 

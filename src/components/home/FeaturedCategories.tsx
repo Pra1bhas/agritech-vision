@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/common/SectionHeading";
 import { Reveal } from "@/components/common/Reveal";
 import { categories } from "@/content/categories";
 import { cn } from "@/lib/utils";
+import { useT } from "@/i18n/LanguageProvider";
 import imgSucking from "@/assets/cat-sucking-pest.jpg";
 import imgChewing from "@/assets/cat-chewing-pest.jpg";
 import imgSC from "@/assets/cat-sucking-chewing.jpg";
@@ -34,16 +35,17 @@ const accentMap: Record<string, string> = {
 };
 
 export function FeaturedCategories() {
+  const { t } = useT();
   return (
     <Section id="categories" labelledBy="categories-h">
       <Container>
         <SectionHeading
-          eyebrow="Our Solutions"
+          eyebrow={t.cats.eyebrow}
           id="categories-h"
-          title="Featured Product Categories"
-          description="A complete portfolio for crop protection, plant nutrition and growth — built for every season."
+          title={t.cats.title}
+          description={t.cats.description}
         />
-        <div className="mt-14 grid grid-cols-2 gap-4 md:gap-5 lg:grid-cols-4">
+        <div className="mt-16 grid grid-cols-2 gap-5 md:gap-6 lg:grid-cols-4">
           {categories.map((c, i) => (
             <Reveal key={c.slug} delay={(i % 4) * 0.06}>
               <Link
@@ -54,7 +56,7 @@ export function FeaturedCategories() {
                 <div className="relative aspect-[4/5] overflow-hidden text-primary-foreground">
                   <img
                     src={imageMap[c.slug]}
-                    alt={c.name}
+                    alt={t.cats.names[c.slug] ?? c.name}
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
@@ -65,20 +67,20 @@ export function FeaturedCategories() {
                     )}
                     aria-hidden
                   />
-                  <div className="relative flex h-full flex-col justify-between p-5">
+                  <div className="relative flex h-full flex-col justify-between p-6">
                     <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary-foreground/70">
-                        Category {String(i + 1).padStart(2, "0")}
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary-foreground/75">
+                        {t.cats.categoryLabel} {String(i + 1).padStart(2, "0")}
                       </p>
-                      <h3 className="mt-3 font-display text-xl font-bold leading-tight md:text-2xl">
-                        {c.name}
+                      <h3 className="mt-4 font-display text-xl font-bold leading-snug md:text-2xl">
+                        {t.cats.names[c.slug] ?? c.name}
                       </h3>
                     </div>
-                    <div className="flex items-end justify-between">
-                      <p className="max-w-[14rem] text-xs text-primary-foreground/80 md:text-sm">
-                        {c.shortBlurb}
+                    <div className="flex items-end justify-between gap-3">
+                      <p className="max-w-[14rem] text-xs leading-relaxed text-primary-foreground/85 md:text-sm">
+                        {t.cats.blurbs[c.slug] ?? c.shortBlurb}
                       </p>
-                      <span className="grid h-10 w-10 place-items-center rounded-full bg-primary-foreground/15 backdrop-blur transition-all group-hover:bg-primary-foreground/30">
+                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary-foreground/15 backdrop-blur transition-all group-hover:bg-primary-foreground/30">
                         <ArrowUpRight className="h-4 w-4" />
                       </span>
                     </div>
