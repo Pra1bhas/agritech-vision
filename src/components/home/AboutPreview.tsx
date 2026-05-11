@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/common/Reveal";
 import { ImageFrame } from "@/components/common/ImageFrame";
+import aboutField from "@/assets/about-field.jpg";
 
 export function AboutPreview() {
   return (
@@ -11,9 +12,9 @@ export function AboutPreview() {
       <Container className="grid items-center gap-12 md:grid-cols-2">
         <Reveal>
           <ImageFrame
-            alt="Indian Agritech fields"
+            src={aboutField}
+            alt="Farmer holding green seedling in rich soil"
             ratio="portrait"
-            label="Field Imagery"
             className="md:max-w-md"
           />
         </Reveal>

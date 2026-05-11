@@ -4,6 +4,7 @@ import { Reveal } from "@/components/common/Reveal";
 import { ImageFrame } from "@/components/common/ImageFrame";
 import { Quote } from "lucide-react";
 import { site } from "@/content/site";
+import chairmanImg from "@/assets/chairman.jpg";
 
 export function ChairmanMessage() {
   return (
@@ -12,9 +13,9 @@ export function ChairmanMessage() {
         <Reveal className="md:col-span-5">
           <div className="relative">
             <ImageFrame
+              src={chairmanImg}
               alt={`Portrait of ${site.chairman}, Chairman, Indian Agritech`}
               ratio="portrait"
-              label="Chairman Portrait"
               className="md:max-w-sm"
             />
             <div className="absolute -bottom-5 -right-3 hidden rounded-2xl border border-border bg-card px-5 py-3 shadow-elevated md:block">
