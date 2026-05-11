@@ -1,7 +1,5 @@
 export type Lang = "en" | "te";
 
-export type Dict = typeof translationsRaw.en;
-
 const translationsRaw = {
   en: {
     nav: {
