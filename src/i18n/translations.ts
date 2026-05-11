@@ -255,7 +255,18 @@ const translationsRaw = {
       smallTag: "పంట రక్షణ · మొక్కల పోషణ · పెరుగుదల పరిష్కారాలు",
     },
   },
-} as const;
+};
 
-export const translations: Record<Lang, Dict> = translationsRaw;
+type DeepString<T> = {
+  [K in keyof T]: T[K] extends string
+    ? string
+    : T[K] extends ReadonlyArray<infer U>
+      ? Array<DeepString<U>>
+      : T[K] extends object
+        ? DeepString<T[K]>
+        : T[K];
+};
+
+export type Dict = DeepString<typeof translationsRaw.en>;
+export const translations = translationsRaw as unknown as Record<Lang, Dict>;
 
