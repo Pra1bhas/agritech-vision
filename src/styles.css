@@ -18,8 +18,8 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
-  --font-display: "Bricolage Grotesque", "Coolvetica", "Noto Sans Telugu", "Inter", system-ui, sans-serif;
-  --font-sans: "Inter", "Noto Sans Telugu", system-ui, sans-serif;
+  --font-display: "Fraunces", "Noto Sans Telugu", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "Noto Sans Telugu", system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -207,8 +207,10 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.022em;
-    line-height: 1.15;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 96, "SOFT" 50;
+    letter-spacing: -0.012em;
+    line-height: 1.18;
   }
 
   h1 { line-height: 1.08; }

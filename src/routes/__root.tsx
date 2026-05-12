@@ -109,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap",
       },
     ],
     scripts: [
@@ -130,7 +130,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        <style>{`:root { --font-display: "Bricolage Grotesque", "Coolvetica", system-ui, sans-serif; }`}</style>
+        <style>{`:root { --font-display: "Fraunces", "Noto Sans Telugu", Georgia, serif; --font-sans: "Plus Jakarta Sans", "Noto Sans Telugu", system-ui, sans-serif; }`}</style>
       </head>
       <body>
         {children}
