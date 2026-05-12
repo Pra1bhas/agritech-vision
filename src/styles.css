@@ -242,3 +242,27 @@
       radial-gradient(circle at 80% 60%, oklch(0.82 0.16 85 / 0.06) 0, transparent 40%);
   }
 }
+
+@keyframes hero-pan {
+  0%   { transform: scale(1.08) translate3d(0, 0, 0); }
+  50%  { transform: scale(1.15) translate3d(-1.5%, -1%, 0); }
+  100% { transform: scale(1.08) translate3d(0, 0, 0); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: .7; }
+  50%      { transform: translateY(-22px) translateX(10px); opacity: 1; }
+}
+@keyframes float-slower {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: .55; }
+  50%      { transform: translateY(18px) translateX(-12px); opacity: .9; }
+}
+@keyframes float-card {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@layer utilities {
+  .animate-hero-pan { animation: hero-pan 22s ease-in-out infinite; will-change: transform; }
+  .animate-float-slow { animation: float-slow 9s ease-in-out infinite; }
+  .animate-float-slower { animation: float-slower 13s ease-in-out infinite; }
+  .animate-float-card { animation: float-card 7s ease-in-out infinite; }
+}
