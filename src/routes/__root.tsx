@@ -130,7 +130,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        <style>{`:root { --font-display: "Bricolage Grotesque", "Coolvetica", system-ui, sans-serif; }`}</style>
+        <style>{`:root { --font-display: "Fraunces", "Noto Sans Telugu", Georgia, serif; --font-sans: "Plus Jakarta Sans", "Noto Sans Telugu", system-ui, sans-serif; }`}</style>
       </head>
       <body>
         {children}
