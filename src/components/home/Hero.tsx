@@ -134,17 +134,6 @@ export function Hero() {
                 height={1024}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-background/95 p-5 text-foreground shadow-elevated">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-leaf">
-                  {t.hero.featured}
-                </p>
-                <p className="mt-2 font-display text-lg font-bold">
-                  {t.hero.featuredTitle}
-                </p>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  {t.hero.featuredSub}
-                </p>
-              </div>
             </div>
           </div>
           {/* floating accent badge */}
