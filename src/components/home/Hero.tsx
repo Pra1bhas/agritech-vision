@@ -4,7 +4,7 @@ import { Container } from "@/components/layout/Container";
 import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg-new.jpg";
-import heroSide from "@/assets/hero-side.jpg";
+
 import { useT } from "@/i18n/LanguageProvider";
 
 export function Hero() {
