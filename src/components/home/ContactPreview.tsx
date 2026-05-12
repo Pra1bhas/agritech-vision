@@ -36,18 +36,18 @@ export function ContactPreview() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-3 md:items-stretch">
           {items.map((it, i) => (
-            <Reveal key={it.label} delay={i * 0.06}>
+            <Reveal key={it.label} delay={i * 0.06} className="h-full">
               {it.href ? (
                 <a
                   href={it.href}
-                  className="group flex h-full items-start gap-4 rounded-3xl border border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated"
+                  className="group flex h-full min-h-[200px] flex-col rounded-3xl border border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated"
                 >
                   <CardInner icon={it.icon} label={it.label} value={it.value} />
                 </a>
               ) : (
-                <div className="flex h-full items-start gap-4 rounded-3xl border border-border bg-card p-7 shadow-soft">
+                <div className="flex h-full min-h-[200px] flex-col rounded-3xl border border-border bg-card p-7 shadow-soft">
                   <CardInner icon={it.icon} label={it.label} value={it.value} />
                 </div>
               )}
@@ -70,15 +70,15 @@ function CardInner({
 }) {
   return (
     <>
-      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-leaf/10 text-leaf">
+      <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-leaf/10 text-leaf">
         <Icon className="h-5 w-5" />
       </div>
-      <div>
-        <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-          {label}
-        </p>
-        <p className="mt-2 font-display text-base font-bold leading-snug">{value}</p>
-      </div>
+      <p className="mt-5 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+        {label}
+      </p>
+      <p className="mt-2 font-display text-base font-bold leading-snug text-foreground">
+        {value}
+      </p>
     </>
   );
 }
