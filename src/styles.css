@@ -207,8 +207,10 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.022em;
-    line-height: 1.15;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 96, "SOFT" 50;
+    letter-spacing: -0.012em;
+    line-height: 1.18;
   }
 
   h1 { line-height: 1.08; }
