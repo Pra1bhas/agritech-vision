@@ -4,7 +4,7 @@ import { Container } from "@/components/layout/Container";
 import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg-new.jpg";
-import heroSide from "@/assets/hero-side.jpg";
+
 import { useT } from "@/i18n/LanguageProvider";
 
 export function Hero() {
@@ -53,8 +53,8 @@ export function Hero() {
         className="absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-accent/20 blur-3xl"
       />
 
-      <Container className="relative grid items-center gap-12 py-20 md:grid-cols-12 md:py-28">
-        <div className="md:col-span-7">
+      <Container className="relative py-20 md:py-28">
+        <div className="mx-auto max-w-3xl text-center">
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-primary-foreground/85 md:text-lg md:leading-[1.8]"
+            className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/85 md:text-lg md:leading-[1.8]"
           >
             {t.hero.subtitle}
           </motion.p>
@@ -84,7 +84,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-8 flex flex-wrap justify-center gap-3"
           >
             <Link
               to="/products"
@@ -103,7 +103,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-primary-foreground/15 pt-8"
+            className="mx-auto mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-primary-foreground/15 pt-8"
           >
             {[
               { v: t.hero.statCategoriesV, l: t.hero.statCategoriesL },
@@ -117,31 +117,6 @@ export function Hero() {
             ))}
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative hidden md:col-span-5 md:block"
-        >
-          <div className="relative aspect-[4/5] rounded-[2.5rem] border border-primary-foreground/15 bg-primary-foreground/5 p-3 backdrop-blur-md shadow-elevated animate-float-card">
-            <div className="relative h-full w-full overflow-hidden rounded-[2rem]">
-              <img
-                src={heroSide}
-                alt="Healthy seedling held in farmer hands"
-                className="absolute inset-0 h-full w-full object-cover"
-                width={1024}
-                height={1024}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
-            </div>
-          </div>
-          {/* floating accent badge */}
-          <div className="absolute -left-6 top-10 hidden rounded-2xl border border-primary-foreground/15 bg-background/95 px-4 py-3 text-foreground shadow-elevated backdrop-blur md:block animate-float-slow">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-leaf">Trusted</p>
-            <p className="font-display text-sm font-bold">Since 2020</p>
-          </div>
-        </motion.div>
       </Container>
     </section>
   );
