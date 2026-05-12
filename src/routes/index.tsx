@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/home/Hero";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
-import { FeaturedCategories } from "@/components/home/FeaturedCategories";
+
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { ChairmanMessage } from "@/components/home/ChairmanMessage";
 import { CTASection } from "@/components/home/CTASection";
@@ -27,7 +27,7 @@ function Index() {
       <Hero />
       <AboutPreview />
       <ServicesGrid />
-      <FeaturedCategories />
+      
       <WhyChooseUs />
       <ChairmanMessage />
       <CTASection />
