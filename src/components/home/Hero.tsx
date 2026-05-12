@@ -3,7 +3,8 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg-new.jpg";
+import heroSide from "@/assets/hero-side.jpg";
 import { useT } from "@/i18n/LanguageProvider";
 
 export function Hero() {
@@ -14,16 +15,24 @@ export function Hero() {
         src={heroBg}
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover opacity-40"
+        className="absolute inset-0 h-full w-full object-cover opacity-50 animate-hero-pan"
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/70 to-primary/90"
+        className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/65 to-primary/90"
       />
       <div
         aria-hidden
-        className="absolute inset-0 leaf-pattern opacity-30"
+        className="absolute inset-0 leaf-pattern opacity-25"
       />
+      {/* animated drifting orbs */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <span className="absolute left-[10%] top-[20%] h-2 w-2 rounded-full bg-accent/70 blur-[1px] animate-float-slow" />
+        <span className="absolute left-[30%] top-[70%] h-1.5 w-1.5 rounded-full bg-primary-foreground/60 animate-float-slower" />
+        <span className="absolute left-[70%] top-[35%] h-2.5 w-2.5 rounded-full bg-accent/50 blur-[1px] animate-float-slow" />
+        <span className="absolute left-[85%] top-[65%] h-1.5 w-1.5 rounded-full bg-primary-foreground/50 animate-float-slower" />
+        <span className="absolute left-[55%] top-[15%] h-1 w-1 rounded-full bg-accent animate-float-slow" />
+      </div>
       <div
         aria-hidden
         className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_oklch(0.82_0.16_85_/_0.25),_transparent_55%)]"
@@ -115,20 +124,16 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.2 }}
           className="relative hidden md:col-span-5 md:block"
         >
-          <div className="relative aspect-square rounded-[2.5rem] border border-primary-foreground/10 bg-primary-foreground/5 p-3 backdrop-blur-md shadow-elevated">
-            <div className="leaf-pattern relative h-full w-full overflow-hidden rounded-[2rem] bg-gradient-leaf">
-              <svg
-                viewBox="0 0 200 200"
-                className="absolute inset-0 h-full w-full text-primary-foreground/30"
-                fill="none"
-              >
-                <path
-                  d="M150 30c-50 0-90 40-90 90 0 15 4 28 12 38 40 0 80-30 80-90 0-15 0-38-2-38z"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-                <path d="M70 170c14-40 35-70 75-100" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
+          <div className="relative aspect-[4/5] rounded-[2.5rem] border border-primary-foreground/15 bg-primary-foreground/5 p-3 backdrop-blur-md shadow-elevated animate-float-card">
+            <div className="relative h-full w-full overflow-hidden rounded-[2rem]">
+              <img
+                src={heroSide}
+                alt="Healthy seedling held in farmer hands"
+                className="absolute inset-0 h-full w-full object-cover"
+                width={1024}
+                height={1024}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-background/95 p-5 text-foreground shadow-elevated">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-leaf">
                   {t.hero.featured}
@@ -141,6 +146,11 @@ export function Hero() {
                 </p>
               </div>
             </div>
+          </div>
+          {/* floating accent badge */}
+          <div className="absolute -left-6 top-10 hidden rounded-2xl border border-primary-foreground/15 bg-background/95 px-4 py-3 text-foreground shadow-elevated backdrop-blur md:block animate-float-slow">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-leaf">Trusted</p>
+            <p className="font-display text-sm font-bold">Since 2020</p>
           </div>
         </motion.div>
       </Container>
