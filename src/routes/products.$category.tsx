@@ -65,7 +65,7 @@ const accentMap: Record<string, string> = {
 };
 
 function CategoryPage() {
-  const { category } = Route.useLoaderData();
+  const { category, products } = Route.useLoaderData();
   const others = categories.filter((c) => c.slug !== category.slug).slice(0, 4);
 
   return (
