@@ -152,56 +152,32 @@ function CategoryPage() {
         </Container>
       </Section>
 
-      {/* Brochure showcase */}
+      {/* Products in this category */}
       <Section className="bg-gradient-cream">
         <Container>
           <div className="flex items-end justify-between gap-6">
             <div>
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-leaf">
-                Product showcase
+                Product range
               </p>
               <h2 className="font-display text-2xl font-bold md:text-4xl">
-                {category.name} brochures
+                {category.name} products
               </h2>
             </div>
           </div>
-          {category.brochures.length > 0 ? (
-            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {category.brochures.map((b: { src: string; alt: string; caption?: string }, i: number) => (
-                <Reveal key={i} delay={(i % 3) * 0.06}>
-                  <ImageFrame src={b.src} alt={b.alt} ratio="portrait" />
-                  {b.caption && (
-                    <p className="mt-3 text-sm font-medium">{b.caption}</p>
-                  )}
-                </Reveal>
-              ))}
-            </div>
-          ) : (
-            <Reveal>
-              <div className="mt-8 rounded-3xl border border-dashed border-border bg-card/60 p-10 text-center">
-                <p className="font-display text-xl font-bold">
-                  Detailed brochures coming soon.
-                </p>
-                <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
-                  Reach out on WhatsApp for the full {category.name.toLowerCase()} catalogue,
-                  pricing and dealer details.
-                </p>
-                <div className="mt-5 inline-block">
-                  <WhatsAppCTA
-                    message={`Hello Indian Agritech, please share the ${category.name} brochure.`}
-                    className="h-12 px-6"
-                  >
-                    Request brochure
-                  </WhatsAppCTA>
-                </div>
-              </div>
-            </Reveal>
-          )}
+          <div className="mt-8">
+            <ProductsExplorer
+              products={products}
+              initialCategory={category.slug}
+              showCategoryFilter={false}
+            />
+          </div>
         </Container>
       </Section>
 
       {/* Other categories */}
       <Section>
+
         <Container>
           <h2 className="font-display text-2xl font-bold md:text-3xl">
             Explore other categories
