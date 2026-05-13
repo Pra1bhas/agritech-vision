@@ -9,12 +9,15 @@ import { categories, getCategory } from "@/content/categories";
 import { site } from "@/content/site";
 import { buildMeta } from "@/lib/seo";
 import { cn } from "@/lib/utils";
+import { ProductsExplorer } from "@/components/products/ProductsExplorer";
+import { getProductsByCategory } from "@/lib/products/source";
 
 export const Route = createFileRoute("/products/$category")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     const cat = getCategory(params.category);
     if (!cat) throw notFound();
-    return { category: cat };
+    const products = await getProductsByCategory(cat.slug);
+    return { category: cat, products };
   },
   head: ({ loaderData }) => {
     const c = loaderData?.category;
