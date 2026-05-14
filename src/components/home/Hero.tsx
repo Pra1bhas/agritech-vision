@@ -3,7 +3,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg-new.jpg";
+import heroBg from "@/assets/hero-bg-fields.jpg";
 
 import { useT } from "@/i18n/LanguageProvider";
 
