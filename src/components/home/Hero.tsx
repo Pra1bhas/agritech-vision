@@ -2,21 +2,44 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
-import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg-fields.jpg";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import slide1 from "@/assets/hero-slide-1.jpg";
+import slide2 from "@/assets/hero-slide-2.jpg";
+import slide3 from "@/assets/hero-slide-3.jpg";
+import slide4 from "@/assets/hero-slide-4.jpg";
 
 import { useT } from "@/i18n/LanguageProvider";
 
+const HERO_SLIDES = [slide1, slide2, slide3, slide4];
+
 export function Hero() {
   const { t } = useT();
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % HERO_SLIDES.length);
+    }, 5500);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section className="relative -mt-16 flex min-h-[92vh] items-center overflow-hidden bg-gradient-hero pt-16 text-primary-foreground md:-mt-20 md:pt-20">
-      <img
-        src={heroBg}
-        alt=""
-        aria-hidden
-        className="absolute inset-0 h-full w-full object-cover opacity-50 animate-hero-pan"
-      />
+      <div aria-hidden className="absolute inset-0 overflow-hidden">
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={index}
+            src={HERO_SLIDES[index]}
+            alt=""
+            initial={{ opacity: 0, scale: 1.08 }}
+            animate={{ opacity: 0.55, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.02 }}
+            transition={{ opacity: { duration: 1.8, ease: "easeInOut" }, scale: { duration: 6.5, ease: "easeOut" } }}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </AnimatePresence>
+      </div>
       <div
         aria-hidden
         className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/65 to-primary/90"
