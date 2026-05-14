@@ -54,6 +54,7 @@ export function AboutPreview() {
           </Link>
         </Reveal>
       </Container>
+      <GrassDivider />
     </Section>
   );
 }
