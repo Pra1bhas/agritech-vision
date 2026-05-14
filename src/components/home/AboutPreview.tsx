@@ -6,11 +6,12 @@ import { Reveal } from "@/components/common/Reveal";
 import { ImageFrame } from "@/components/common/ImageFrame";
 import aboutField from "@/assets/about-field.jpg";
 import { useT } from "@/i18n/LanguageProvider";
+import { GrassDivider } from "@/components/common/GrassDivider";
 
 export function AboutPreview() {
   const { t } = useT();
   return (
-    <Section id="about-preview" labelledBy="about-preview-h">
+    <Section id="about-preview" labelledBy="about-preview-h" className="relative overflow-hidden pb-32 md:pb-44">
       <Container className="grid items-center gap-14 md:grid-cols-2">
         <Reveal>
           <ImageFrame
