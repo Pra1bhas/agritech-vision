@@ -26,6 +26,7 @@ function Index() {
   return (
     <>
       <Hero />
+      <HeroAboutTransition />
       <AboutPreview />
       <ServicesGrid />
       
