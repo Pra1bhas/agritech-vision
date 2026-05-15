@@ -31,10 +31,11 @@ export function HeroAboutTransition({ className }: { className?: string }) {
       ref={ref}
       aria-hidden
       className={cn(
-        "relative -mt-24 md:-mt-32 lg:-mt-40 w-full overflow-hidden leading-[0] pointer-events-none select-none",
+        // Smaller negative offset on mobile so the divider doesn't push into About copy
+        "relative -mt-10 sm:-mt-16 md:-mt-28 lg:-mt-36 w-full overflow-hidden leading-[0] pointer-events-none select-none",
         className,
       )}
-      style={{ zIndex: 5 }}
+      style={{ zIndex: 1 }}
     >
       {/* Top fade: hero green → cream */}
       <motion.div
