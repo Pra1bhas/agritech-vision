@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/home/Hero";
+import { HeroAboutTransition } from "@/components/common/HeroAboutTransition";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 
@@ -25,6 +26,7 @@ function Index() {
   return (
     <>
       <Hero />
+      <HeroAboutTransition />
       <AboutPreview />
       <ServicesGrid />
       
