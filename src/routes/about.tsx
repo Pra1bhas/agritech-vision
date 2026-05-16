@@ -10,6 +10,7 @@ import { CTASection } from "@/components/home/CTASection";
 import { buildMeta } from "@/lib/seo";
 import { site } from "@/content/site";
 import { Leaf, Target, Award } from "lucide-react";
+import aboutHeroBg from "@/assets/about-hero-bg.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -32,8 +33,19 @@ const values = [
 function AboutPage() {
   return (
     <>
-      <section className="bg-gradient-hero text-primary-foreground">
-        <Container className="py-20 md:py-28">
+      <section className="relative overflow-hidden bg-gradient-hero text-primary-foreground">
+        <img
+          src={aboutHeroBg}
+          alt=""
+          aria-hidden
+          width={1600}
+          height={900}
+          loading="eager"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover opacity-40"
+        />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/55 to-primary/80" />
+        <Container className="relative py-20 md:py-28">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             About {site.name}
           </p>
