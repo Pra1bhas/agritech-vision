@@ -9,6 +9,7 @@ import { CTASection } from "@/components/home/CTASection";
 import { ContactPreview } from "@/components/home/ContactPreview";
 import { buildMeta } from "@/lib/seo";
 import { site } from "@/content/site";
+import heroSlide1 from "@/assets/hero-slide-1.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,6 +18,9 @@ export const Route = createFileRoute("/")({
       description: site.description,
       path: "/",
     }),
+    links: [
+      { rel: "preload", as: "image", href: heroSlide1, fetchpriority: "high" },
+    ],
   }),
   component: Index,
 });

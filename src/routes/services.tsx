@@ -6,6 +6,7 @@ import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { FeaturedCategories } from "@/components/home/FeaturedCategories";
 import { CTASection } from "@/components/home/CTASection";
 import { buildMeta } from "@/lib/seo";
+import servicesHeroBg from "@/assets/services-hero-bg.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -22,8 +23,19 @@ export const Route = createFileRoute("/services")({
 function ServicesPage() {
   return (
     <>
-      <Section className="bg-gradient-hero text-primary-foreground">
-        <Container>
+      <Section className="relative overflow-hidden bg-gradient-hero text-primary-foreground">
+        <img
+          src={servicesHeroBg}
+          alt=""
+          aria-hidden
+          width={1600}
+          height={900}
+          loading="eager"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover opacity-40"
+        />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/55 to-primary/80" />
+        <Container className="relative">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             Services & Solutions
           </p>

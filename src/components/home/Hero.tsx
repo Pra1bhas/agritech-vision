@@ -7,15 +7,23 @@ import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
 import heroSlide2 from "@/assets/hero-slide-2.jpg";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
-import heroBg from "@/assets/hero-bg-new.jpg";
+import heroSlide4 from "@/assets/hero-slide-4.jpg";
 
 import { useT } from "@/i18n/LanguageProvider";
 
-const slides = [heroSlide1, heroSlide2, heroSlide3, heroBg];
+const slides = [heroSlide1, heroSlide2, heroSlide3, heroSlide4];
 
 export function Hero() {
   const { t } = useT();
   const [index, setIndex] = useState(0);
+
+  // Preload non-LCP slides after mount so transitions are instant on mobile too
+  useEffect(() => {
+    slides.slice(1).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -33,6 +41,12 @@ export function Hero() {
           src={slides[index]}
           alt=""
           aria-hidden
+          width={1600}
+          height={900}
+          loading={index === 0 ? "eager" : "lazy"}
+          decoding="async"
+          fetchPriority={index === 0 ? "high" : "low"}
+          sizes="100vw"
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 0.55, scale: 1.15 }}
           exit={{ opacity: 0, scale: 1.18 }}
@@ -114,21 +128,6 @@ export function Hero() {
               className="md:h-14 md:px-7 md:text-base"
             />
           </motion.div>
-
-          {/* Slide indicators */}
-          <div className="mt-12 flex justify-center gap-2">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                aria-label={`Show slide ${i + 1}`}
-                onClick={() => setIndex(i)}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === index ? "w-8 bg-accent" : "w-4 bg-primary-foreground/40 hover:bg-primary-foreground/60"
-                }`}
-              />
-            ))}
-          </div>
         </div>
       </Container>
     </section>
