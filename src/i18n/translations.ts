@@ -19,7 +19,7 @@ const translationsRaw = {
       titleA: "Modern Crop Solutions",
       titleB: "for Indian Farmers.",
       subtitle:
-        "Premium crop protection, plant nutrition and growth solutions — engineered for real fields, trusted by farmers, dealers and distributors across India.",
+        "Helping farmers grow better with reliable crop protection and plant nutrition products.",
       cta: "Explore Products",
       whatsapp: "WhatsApp Us",
       statCategoriesV: "8+",
@@ -146,7 +146,7 @@ const translationsRaw = {
       titleA: "ఆధునిక పంట పరిష్కారాలు",
       titleB: "భారతీయ రైతుల కోసం.",
       subtitle:
-        "ప్రీమియం పంట రక్షణ, మొక్కల పోషణ మరియు పెరుగుదల పరిష్కారాలు — నిజమైన పొలాల కోసం రూపొందించబడ్డాయి, దేశవ్యాప్తంగా రైతులు, డీలర్లు మరియు పంపిణీదారులచే విశ్వసించబడ్డాయి.",
+        "నమ్మదగిన పంట రక్షణ మరియు మొక్కల పోషణ ఉత్పత్తులతో రైతులు మెరుగ్గా పండించడంలో సహాయం చేస్తున్నాము.",
       cta: "ఉత్పత్తులను చూడండి",
       whatsapp: "వాట్సాప్ చేయండి",
       statCategoriesV: "8+",
