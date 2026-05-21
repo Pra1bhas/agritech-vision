@@ -3,7 +3,6 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/common/Reveal";
-import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { site } from "@/content/site";
 import { buildMeta } from "@/lib/seo";
 
@@ -106,12 +105,13 @@ function ContactPage() {
               </div>
             </Reveal>
             <Reveal delay={0.18}>
-              <WhatsAppCTA
-                message="Hello Indian Agritech, I have an inquiry."
-                className="h-14 w-full"
+              <a
+                href={`tel:${site.phoneRaw}`}
+                className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Chat on WhatsApp
-              </WhatsAppCTA>
+                <Phone className="h-4 w-4" />
+                {site.phone}
+              </a>
             </Reveal>
           </div>
 

@@ -1,8 +1,8 @@
 "use client";
+import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Sprout, FileText, Phone, Sprout as Crop, Beaker } from "lucide-react";
 import type { Product } from "@/content/products";
-import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
 
@@ -20,6 +20,12 @@ const accentBg: Record<string, string> = {
 };
 
 export function ProductDetailDialog({ product, open, onOpenChange }: Props) {
+  const [imageError, setImageError] = useState(false);
+
+  useEffect(() => {
+    setImageError(false);
+  }, [product?.id]);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-3xl overflow-hidden rounded-3xl border-border/60 bg-card/95 p-0 backdrop-blur-2xl">
@@ -32,10 +38,13 @@ export function ProductDetailDialog({ product, open, onOpenChange }: Props) {
                 accentBg[product.accent ?? "leaf"],
               )}
             >
-              {product.imageUrl ? (
+              {product.imageUrl && !imageError ? (
                 <img
                   src={product.imageUrl}
                   alt={product.name}
+                  loading="lazy"
+                  decoding="async"
+                  onError={() => setImageError(true)}
                   className="h-full w-full object-cover"
                 />
               ) : (
@@ -56,9 +65,9 @@ export function ProductDetailDialog({ product, open, onOpenChange }: Props) {
                 <DialogTitle className="mt-1 font-display text-3xl font-bold uppercase leading-tight tracking-tight">
                   {product.name}
                 </DialogTitle>
-                {product.tagline && (
+                {(product.description || product.tagline) && (
                   <DialogDescription className="mt-2 text-sm leading-relaxed">
-                    {product.tagline}
+                    {product.description || product.tagline}
                   </DialogDescription>
                 )}
               </div>
@@ -80,17 +89,11 @@ export function ProductDetailDialog({ product, open, onOpenChange }: Props) {
               </dl>
 
               <div className="mt-2 flex flex-wrap gap-2">
-                <WhatsAppCTA
-                  message={`Hello Indian Agritech, I'm interested in ${product.name}.`}
-                  className="h-11 px-5"
-                >
-                  Inquire
-                </WhatsAppCTA>
                 <a
                   href={`tel:${site.phoneRaw}`}
-                  className="inline-flex h-11 items-center gap-2 rounded-full border border-border px-5 text-sm font-semibold hover:bg-muted"
+                  className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:opacity-90"
                 >
-                  <Phone className="h-4 w-4" /> Call
+                  <Phone className="h-4 w-4" /> Call to inquire
                 </a>
                 {product.pdfUrl && (
                   <a

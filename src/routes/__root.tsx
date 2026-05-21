@@ -11,7 +11,6 @@ import {
 import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { site } from "@/content/site";
 
@@ -150,10 +149,6 @@ function RootComponent() {
           <Outlet />
         </main>
         <SiteFooter />
-        <WhatsAppCTA
-          variant="floating"
-          message="Hello Indian Agritech, I have an inquiry."
-        />
       </LanguageProvider>
     </QueryClientProvider>
   );

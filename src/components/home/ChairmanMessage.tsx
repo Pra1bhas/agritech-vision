@@ -4,7 +4,6 @@ import { Reveal } from "@/components/common/Reveal";
 import { ImageFrame } from "@/components/common/ImageFrame";
 import { Quote } from "lucide-react";
 import { site } from "@/content/site";
-import chairmanImg from "@/assets/chairman.jpg";
 import { useT } from "@/i18n/LanguageProvider";
 
 export function ChairmanMessage() {
@@ -13,19 +12,19 @@ export function ChairmanMessage() {
     <Section id="chairman" labelledBy="chairman-h">
       <Container className="grid items-center gap-12 md:grid-cols-12">
         <Reveal className="md:col-span-5">
-          <div className="relative">
+          <div className="grid grid-cols-2 gap-6">
             <ImageFrame
-              src={chairmanImg}
-              alt={`Portrait of ${site.chairman}, Chairman, Indian Agritech`}
+              alt="Chairman P. Ashok image placeholder"
               ratio="portrait"
-              className="md:max-w-sm"
+              className="w-full"
+              label="P. Ashok"
             />
-            <div className="absolute -bottom-5 -right-3 hidden rounded-2xl border border-border bg-card px-5 py-3 shadow-elevated md:block">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                {t.chairman.role.replace(",", "")}
-              </p>
-              <p className="mt-1 font-display text-base font-bold">{site.chairman}</p>
-            </div>
+            <ImageFrame
+              alt="Managing Director D. Sandeep image placeholder"
+              ratio="portrait"
+              className="w-full"
+              label="D. Sandeep"
+            />
           </div>
         </Reveal>
 
@@ -44,8 +43,7 @@ export function ChairmanMessage() {
             <p>{t.chairman.body2}</p>
           </div>
           <div className="mt-10 border-t border-border pt-6">
-            <p className="font-display text-lg font-bold">{site.chairman}</p>
-            <p className="mt-1 text-sm text-muted-foreground">{t.chairman.role} {site.name}</p>
+            <p className="font-display text-lg font-bold">{site.associate}</p>
           </div>
         </Reveal>
       </Container>

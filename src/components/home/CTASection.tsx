@@ -2,7 +2,6 @@ import { Phone } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/common/Reveal";
-import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { site } from "@/content/site";
 import { useT } from "@/i18n/LanguageProvider";
 
@@ -31,13 +30,9 @@ export function CTASection() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 md:col-span-4 md:justify-end">
-                <WhatsAppCTA
-                  message="Hello Indian Agritech, I'd like to grow with you."
-                  className="h-12 px-6 md:h-14"
-                />
                 <a
                   href={`tel:${site.phoneRaw}`}
-                  className="inline-flex h-12 items-center gap-2 rounded-full border border-primary-foreground/30 px-6 text-sm font-semibold tracking-wide transition-colors hover:bg-primary-foreground/10 md:h-14"
+                  className="inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 text-sm font-semibold tracking-wide text-accent-foreground transition-colors hover:opacity-90 md:h-14"
                 >
                   <Phone className="h-4 w-4" /> {t.common.callUs}
                 </a>
