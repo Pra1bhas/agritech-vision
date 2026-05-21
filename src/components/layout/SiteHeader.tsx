@@ -3,7 +3,6 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
-import { WhatsAppCTA } from "./WhatsAppCTA";
 import { LanguageToggle } from "./LanguageToggle";
 import { Container } from "./Container";
 import { navLinks } from "@/content/nav";
@@ -11,7 +10,6 @@ import { cn } from "@/lib/utils";
 import { useT } from "@/i18n/LanguageProvider";
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { location } = useRouterState();
   const { t } = useT();
@@ -24,25 +22,11 @@ export function SiteHeader() {
   };
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-all duration-300",
-        scrolled
-          ? "bg-background/85 shadow-soft backdrop-blur-md"
-          : "bg-transparent",
-      )}
-    >
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-border/40 bg-white shadow-sm transition-shadow duration-300">
       <Container className="flex h-16 items-center justify-between md:h-20">
         <Logo />
 
@@ -68,7 +52,6 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-3 md:flex">
           <LanguageToggle />
-          <WhatsAppCTA message="Hello Indian Agritech, I have an inquiry." />
         </div>
 
         <button
@@ -85,7 +68,7 @@ export function SiteHeader() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          "fixed inset-x-0 top-16 z-30 origin-top overflow-hidden bg-background/98 backdrop-blur-md transition-all duration-300 md:hidden",
+          "fixed inset-x-0 top-16 z-30 origin-top overflow-hidden border-b border-border/40 bg-white transition-all duration-300 md:hidden",
           open ? "max-h-[80vh] border-b border-border" : "max-h-0",
         )}
       >
@@ -101,12 +84,8 @@ export function SiteHeader() {
               {t.nav[navKey[l.to]]}
             </Link>
           ))}
-          <div className="mt-4 flex items-center justify-between gap-3">
+          <div className="mt-4">
             <LanguageToggle />
-            <WhatsAppCTA
-              message="Hello Indian Agritech, I have an inquiry."
-              className="flex-1"
-            />
           </div>
         </Container>
       </div>

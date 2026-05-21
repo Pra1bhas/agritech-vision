@@ -49,8 +49,9 @@ export function FeaturedCategories() {
           {categories.map((c, i) => (
             <Reveal key={c.slug} delay={(i % 4) * 0.06}>
               <Link
-                to="/products/$category"
-                params={{ category: c.slug }}
+                to="/products"
+                search={{ category: c.slug }}
+                hash="products-grid"
                 className="group relative block overflow-hidden rounded-3xl shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated"
               >
                 <div className="relative aspect-[4/5] overflow-hidden text-primary-foreground">

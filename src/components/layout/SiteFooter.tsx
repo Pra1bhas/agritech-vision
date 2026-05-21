@@ -58,8 +58,9 @@ export function SiteFooter() {
             {categories.slice(0, 6).map((c) => (
               <li key={c.slug}>
                 <Link
-                  to="/products/$category"
-                  params={{ category: c.slug }}
+                  to="/products"
+                  search={{ category: c.slug }}
+                  hash="products-grid"
                   className="text-primary-foreground/80 transition-colors hover:text-primary-foreground"
                 >
                   {t.cats.names[c.slug] ?? c.name}

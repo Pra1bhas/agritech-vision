@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Sprout, ArrowUpRight } from "lucide-react";
 import type { Product } from "@/content/products";
@@ -19,6 +20,9 @@ interface Props {
 
 export function ProductCard({ product, onClick, index = 0 }: Props) {
   const accent = product.accent ?? "leaf";
+  const [imageError, setImageError] = useState(false);
+  const showImage = Boolean(product.imageUrl) && !imageError;
+
   return (
     <motion.button
       type="button"
@@ -34,34 +38,27 @@ export function ProductCard({ product, onClick, index = 0 }: Props) {
         "hover:shadow-elevated focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
       )}
     >
-      {/* Image / placeholder */}
       <div
         className={cn(
           "relative aspect-[4/5] overflow-hidden bg-gradient-to-br",
           accentBg[accent],
         )}
       >
-        {product.imageUrl ? (
+        {showImage ? (
           <img
             src={product.imageUrl}
             alt={product.name}
             loading="lazy"
+            decoding="async"
+            width={400}
+            height={500}
+            onError={() => setImageError(true)}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
         ) : (
-          <div className="absolute inset-0 grid place-items-center">
-            <div className="flex flex-col items-center gap-3 text-primary/70">
-              <div className="grid h-16 w-16 place-items-center rounded-full bg-background/70 shadow-soft backdrop-blur">
-                <Sprout className="h-7 w-7" />
-              </div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-primary/60">
-                Product
-              </p>
-            </div>
-          </div>
+          <ProductImagePlaceholder />
         )}
 
-        {/* Glass corner */}
         <div className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-background/70 text-foreground shadow-soft backdrop-blur transition-transform group-hover:rotate-45">
           <ArrowUpRight className="h-4 w-4" />
         </div>
@@ -73,7 +70,6 @@ export function ProductCard({ product, onClick, index = 0 }: Props) {
         )}
       </div>
 
-      {/* Body */}
       <div className="flex flex-1 flex-col gap-1.5 p-4">
         <p className="font-display text-lg font-bold uppercase tracking-tight md:text-xl">
           {product.name}
@@ -85,5 +81,20 @@ export function ProductCard({ product, onClick, index = 0 }: Props) {
         )}
       </div>
     </motion.button>
+  );
+}
+
+function ProductImagePlaceholder() {
+  return (
+    <div className="absolute inset-0 grid place-items-center">
+      <div className="flex flex-col items-center gap-3 text-primary/70">
+        <div className="grid h-16 w-16 place-items-center rounded-full bg-background/70 shadow-soft backdrop-blur">
+          <Sprout className="h-7 w-7" />
+        </div>
+        <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-primary/60">
+          Product
+        </p>
+      </div>
+    </div>
   );
 }

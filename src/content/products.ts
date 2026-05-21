@@ -19,6 +19,8 @@ export interface Product {
   /** Optional Telugu name */
   name_te?: string;
   categorySlug: string;
+  /** Raw category label from the database (source of truth for display). */
+  categoryLabel?: string;
   tagline?: string;
   tagline_te?: string;
   description?: string;
