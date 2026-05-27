@@ -34,7 +34,7 @@ function ServicesPage() {
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/55 to-primary/80" />
+        <div aria-hidden className="absolute inset-0 bg-black/40" />
         <Container className="relative">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             Services & Solutions

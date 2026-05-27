@@ -4,7 +4,6 @@ import { AboutPreview } from "@/components/home/AboutPreview";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
-import { ChairmanMessage } from "@/components/home/ChairmanMessage";
 import { CTASection } from "@/components/home/CTASection";
 import { ContactPreview } from "@/components/home/ContactPreview";
 import { buildMeta } from "@/lib/seo";
@@ -33,7 +32,6 @@ function Index() {
       <ServicesGrid />
       
       <WhyChooseUs />
-      <ChairmanMessage />
       <CTASection />
       <ContactPreview />
     </>

@@ -84,13 +84,7 @@ function ProductsPage() {
         <div className="absolute -left-32 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-leaf/30 blur-3xl" />
         <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
         <Container className="relative py-20 md:py-28">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-1.5 backdrop-blur">
-            <Sparkles className="h-3.5 w-3.5 text-accent" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.25em]">
-              Product Portfolio
-            </span>
-          </div>
-          <h1 className="mt-6 max-w-4xl font-display text-4xl font-bold leading-[1.05] md:text-6xl lg:text-7xl text-balance">
+          <h1 className="max-w-4xl font-display text-4xl font-bold leading-[1.05] md:text-6xl lg:text-7xl text-balance">
             A complete portfolio for every crop, every season.
           </h1>
           <p className="mt-6 max-w-2xl text-primary-foreground/80 md:text-lg">

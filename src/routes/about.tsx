@@ -3,7 +3,6 @@ import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { Reveal } from "@/components/common/Reveal";
-import { ImageFrame } from "@/components/common/ImageFrame";
 import { ChairmanMessage } from "@/components/home/ChairmanMessage";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { CTASection } from "@/components/home/CTASection";
@@ -44,7 +43,7 @@ function AboutPage() {
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/55 to-primary/80" />
+        <div aria-hidden className="absolute inset-0 bg-black/40" />
         <Container className="relative py-20 md:py-28">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             About {site.name}
@@ -60,11 +59,8 @@ function AboutPage() {
       </section>
 
       <Section>
-        <Container className="grid items-center gap-12 md:grid-cols-2">
+        <Container className="max-w-3xl">
           <Reveal>
-            <ImageFrame alt="Indian Agritech facility" ratio="square" label="Company Imagery" />
-          </Reveal>
-          <Reveal delay={0.1}>
             <SectionHeading
               align="left"
               eyebrow="Our story"
